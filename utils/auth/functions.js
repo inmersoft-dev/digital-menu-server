@@ -4,6 +4,14 @@ const uuid = require("node-uuid");
 
 const { GetValue, Insert } = require("../../db/local");
 
+const giveToken = () => {
+  const date = new Date();
+  const stringDate = `${date.getFullYear()}-${
+    date.getMonth() + 1
+  }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  return stringDate;
+};
+
 /**
  *
  * @param {string} user
@@ -15,11 +23,6 @@ const login = async (user, password) => {
   try {
     const data = GetValue("users", user.toLowerCase());
     if (data !== undefined) {
-      const date = new Date();
-      const stringDate = `${date.getFullYear()}-${
-        date.getMonth() + 1
-      }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}}`;
-      theUser.n = data.n;
       theUser.p = data.p;
       theUser.m = data.m;
       if (theUser.p.toLowerCase() === password.toLowerCase())
@@ -29,7 +32,7 @@ const login = async (user, password) => {
             user,
             m: theUser.m,
             token: uuid.v4(),
-            expiration: stringDate,
+            expiration: giveToken(),
           },
         };
       else return { status: 422, data: { error: "wrong password" } };
@@ -44,11 +47,13 @@ const register = async (user, password) => {
   try {
     const data = GetValue("users", user.toLowerCase());
     if (data === undefined) {
-      Insert("users", user.toLowerCase(), { user, password });
+      Insert("users", user.toLowerCase(), { u: user, p: password });
       return {
         status: 200,
         data: {
           user,
+          token: uuid.v4(),
+          expiration: giveToken(),
         },
       };
     }
