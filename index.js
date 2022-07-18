@@ -28,4 +28,8 @@ app.use(limiter); //  apply to all requests
 app.use(express.json({ limit: 1048576 }));
 app.use(express.urlencoded({ extended: false }));
 
+// routes
+const auth = require("./routes/auth");
+app.use("/api/user/", auth);
+
 module.exports = app;

@@ -4,7 +4,8 @@
   "description": "the server of digital-menu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www.js",
+    "dev": "nodemon ./bin/www.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,7 @@
   "homepage": "https://github.com/inmersoft-dev/digital-menu-server#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
-    "chalk": "^5.0.1",
+    "chalk": "4.1.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "debut": "^0.0.15",

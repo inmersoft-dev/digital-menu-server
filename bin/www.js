@@ -7,7 +7,7 @@ const { info, log } = require("../utils/chalk");
  * Module dependencies.
  */
 
-var app = require("../app");
+var app = require("../index.js");
 var debug = require("debug")("menu:server");
 var http = require("http");
 

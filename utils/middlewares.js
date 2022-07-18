@@ -50,12 +50,12 @@ const corsOptions = {
 };
 
 // favicon
-const fav = favicon(path.join(__dirname, "../public", "favicon.ico"));
+// const fav = favicon(path.join(__dirname, "../public", "favicon.ico"));
 
 module.exports = {
   morgan: { assignId, structure, dev },
   helmet: helmet(),
   cors: cors(corsOptions),
   limiter: mLimiter,
-  favicon: fav,
+  // favicon: fav,
 };
