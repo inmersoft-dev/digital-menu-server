@@ -2,7 +2,15 @@
   "users": {
     "admin": {
       "u": "admin",
-      "p": "e807f1fcf82d132f9bb018ca6738a19f"
+      "p": "e807f1fcf82d132f9bb018ca6738a19f",
+      "m": [
+        {
+          "i": 0,
+          "n": "Vino",
+          "d": "Lorem ipsum",
+          "p": "100$"
+        }
+      ]
     }
   }
 }

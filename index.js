@@ -30,6 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 const auth = require("./routes/auth");
+const menu = require("./routes/menu");
 app.use("/api/user/", auth);
+app.use("/api/menu/", menu);
 
 module.exports = app;
