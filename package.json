@@ -1,0 +1,26 @@
+{
+  "name": "digital-menu-server",
+  "version": "0.0.1",
+  "description": "the server of digital-menu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inmersoft-dev/digital-menu-server.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "server",
+    "menu",
+    "digital"
+  ],
+  "author": "sito",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inmersoft-dev/digital-menu-server/issues"
+  },
+  "homepage": "https://github.com/inmersoft-dev/digital-menu-server#readme"
+}
