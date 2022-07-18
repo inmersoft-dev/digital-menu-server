@@ -18,7 +18,7 @@ router.post("/login", async (req, res) => {
       log(good(`${user} logged successful`));
       res.send(result);
     } else {
-      log(error("result.error"));
+      log(error(result.error));
       res.send({ error: result.error });
     }
   } catch (err) {
