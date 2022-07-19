@@ -28,9 +28,8 @@ const save = async (user, menuName, menu, types) => {
  */
 const fetch = async (user, menuName) => {
   try {
-    console.log(user, menuName);
     const userData = GetValue("users", user.toLowerCase());
-    const menu = userData.m;
+    const menu = userData.l;
     const types = userData.t;
     return {
       status: 200,
