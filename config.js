@@ -1,3 +1,7 @@
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 const { IMAGEKIT_URL, IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY } = process.env;
 
 const config = {
