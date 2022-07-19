@@ -38,10 +38,10 @@ const mLimiter = rateLimit({
 });
 
 // cors white list
-const whitelist = ["http//localhost:8000"];
+const blacklist = ["http//localhost:8000"];
 const corsOptions = {
   origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) === -1) {
+    if (blacklist.indexOf(origin) === -1) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
