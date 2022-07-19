@@ -9,12 +9,12 @@ const { GetValue, Update } = require("../../db/local");
  * @param {object[]} menu
  * @returns menu data
  */
-const save = async (user, menuName, menu) => {
+const save = async (user, menuName, menu, types) => {
   try {
     const userData = GetValue("users", user.toLowerCase());
-    userData.m = { n: menuName, l: menu };
+    userData.m = { m: menuName, l: menu, t: types };
     Update("users", user.toLocaleLowerCase(), userData);
-    return { status: 200, data: { u: user, m: menuName, menu } };
+    return { status: 200, data: { u: user, m: menuName, l: menu, t: types } };
   } catch (err) {
     return { error: String(err) };
   }
@@ -31,7 +31,11 @@ const fetch = async (user, menuName) => {
     console.log(user, menuName);
     const userData = GetValue("users", user.toLowerCase());
     const menu = userData.m;
-    return { status: 200, data: { u: user, m: menuName, menu } };
+    const types = userData.t;
+    return {
+      status: 200,
+      data: { u: user, m: menuName, t: types, l: menu },
+    };
   } catch (err) {
     return { error: String(err) };
   }

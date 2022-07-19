@@ -21,7 +21,7 @@ app.use(helmet);
 // cors
 app.use(cors);
 // limiter
-app.use(limiter); //  apply to all requests
+// app.use(limiter); //  apply to all requests
 // favicon
 // app.use(favicon);
 

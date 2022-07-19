@@ -11,8 +11,8 @@ router.post("/save", async (req, res) => {
   log(info("Saving menu"));
   load.start();
   try {
-    const { user, menuName, menu } = req.body;
-    const result = await save(user, menuName, menu);
+    const { user, menuName, menu, types } = req.body;
+    const result = await save(user, menuName, menu, types);
     load.stop();
     if (result.error == undefined) {
       log(good(`${menuName} from ${user} saved successful`));
