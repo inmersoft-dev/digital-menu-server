@@ -7,12 +7,13 @@ const { GetValue, Update } = require("../../db/local");
  * @param {string} user
  * @param {string} menuName
  * @param {object[]} menu
+ * @param {string[]} types
  * @returns menu data
  */
 const save = async (user, menuName, menu, types) => {
   try {
-    const userData = GetValue("users", user.toLowerCase());
-    userData.m = { m: menuName, l: menu, t: types };
+    let userData = GetValue("users", user.toLowerCase());
+    userData = { ...userData, m: menuName, l: menu, t: types };
     Update("users", user.toLocaleLowerCase(), userData);
     return { status: 200, data: { u: user, m: menuName, l: menu, t: types } };
   } catch (err) {

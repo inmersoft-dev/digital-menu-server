@@ -16,7 +16,7 @@ json.init();
  */
 const Insert = (table, key, value) => {
   let localTable = json.get(table);
-  if (localTable) table[key] = value;
+  if (localTable) localTable[key] = value;
   else {
     localTable = {};
     localTable[key] = value;
@@ -32,7 +32,7 @@ const Insert = (table, key, value) => {
  */
 const Update = (table, key, value) => {
   let localTable = json.get(table);
-  if (localTable) table[key] = value;
+  if (localTable) localTable[key] = value;
   else {
     localTable = {};
     localTable[key] = value;
