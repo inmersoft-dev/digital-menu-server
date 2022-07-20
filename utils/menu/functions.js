@@ -51,7 +51,7 @@ const fetchAll = async () => {
     return {
       status: 200,
       data: {
-        users,
+        u: users,
       },
     };
   } catch (err) {
