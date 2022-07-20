@@ -34,7 +34,14 @@ const fetch = async (user, menuName) => {
     const types = userData.t;
     return {
       status: 200,
-      data: { u: user, m: menuName, t: types, l: menu },
+      data: {
+        u: user,
+        m: menuName,
+        t: types,
+        l: menu,
+        ph: userData.ph,
+        d: userData.d,
+      },
     };
   } catch (err) {
     return { error: String(err) };
