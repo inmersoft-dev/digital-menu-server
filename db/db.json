@@ -4,9 +4,7 @@
       "u": "admin",
       "p": "e807f1fcf82d132f9bb018ca6738a19f",
       "t": [
-        "Bebidas",
-        "Entrantes",
-        1
+        "Bebidas"
       ],
       "l": [
         {
@@ -16,22 +14,6 @@
           "p": "100$",
           "ph": "https://www.cocinayvino.com/wp-content/uploads/2020/02/Vino-e1582312813825.jpg",
           "t": 0
-        },
-        {
-          "i": 1,
-          "n": "Coco",
-          "t": 1,
-          "d": "Coco",
-          "p": "100",
-          "ph": ""
-        },
-        {
-          "i": 2,
-          "n": "Coco",
-          "t": 2,
-          "d": "Coco",
-          "p": "100",
-          "ph": ""
         }
       ],
       "m": "admin"

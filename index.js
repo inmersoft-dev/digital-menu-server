@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const uuid = require("node-uuid");
+const crypto = require("crypto");
 
 const {
   helmet,
@@ -34,8 +36,17 @@ const imagekit = new ImageKit({
 // * imagekit config
 app.get("/auth", function (req, res) {
   var result = imagekit.getAuthenticationParameters();
+  var token = req.query.token || uuid.v4();
+  var expire = req.query.expire || parseInt(new Date().getTime() + 10000);
+  console.log(new Date().getTime());
+  var privateAPIKey = "your_private_key";
+  var signature = crypto
+    .createHmac("sha1", privateAPIKey)
+    .update(token + expire)
+    .digest("hex");
   console.log(result);
-  res.send(result);
+  console.log({ token: token, expire: expire, signature: signature });
+  res.send({ token: token, expire: expire, signature: signature });
 });
 // limiter
 // app.use(limiter); //  apply to all requests
