@@ -1,6 +1,6 @@
 // @ts-check
 
-const { GetValue, Update } = require("../../db/local");
+const { GetValue, Update, GetTable } = require("../../db/local");
 
 /**
  *
@@ -41,7 +41,26 @@ const fetch = async (user, menuName) => {
   }
 };
 
+/**
+ *
+ * @returns all menus data
+ */
+const fetchAll = async () => {
+  try {
+    const users = GetTable("users");
+    return {
+      status: 200,
+      data: {
+        users,
+      },
+    };
+  } catch (err) {
+    return { error: String(err) };
+  }
+};
+
 module.exports = {
   save,
   fetch,
+  fetchAll,
 };

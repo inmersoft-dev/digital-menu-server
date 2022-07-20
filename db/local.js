@@ -51,8 +51,17 @@ const GetValue = (table, key) => {
   return undefined;
 };
 
+/**
+ * @param {string} table
+ */
+const GetTable = (table) => {
+  const localTable = json.get(table);
+  if (localTable) return json.get(table);
+  return undefined;
+};
 module.exports = {
   Insert,
   GetValue,
+  GetTable,
   Update,
 };
