@@ -3,9 +3,7 @@
     "admin": {
       "u": "admin",
       "p": "e807f1fcf82d132f9bb018ca6738a19f",
-      "t": [
-        "Bebidas"
-      ],
+      "t": ["Bebidas"],
       "l": [
         {
           "i": 0,

@@ -36,7 +36,7 @@ const fetch = async (user, menuName) => {
       status: 200,
       data: {
         u: user,
-        m: menuName,
+        m: userData.m,
         t: types,
         l: menu,
         ph: userData.ph,

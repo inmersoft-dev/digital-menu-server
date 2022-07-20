@@ -53,7 +53,7 @@ const login = async (user, password) => {
  * @param {string} password
  * @returns user data
  */
-const register = async (user, password) => {
+const save = async (user, password) => {
   try {
     const data = GetValue("users", user.toLowerCase());
     if (data === undefined) {
@@ -75,7 +75,36 @@ const register = async (user, password) => {
   }
 };
 
+/**
+ *
+ * @param {string} user
+ * @param {string} menuName
+ * @param {string} menuDescription
+ * @param {string} photo
+ * @returns user data
+ */
+const register = async (user, menuName, menuDescription, photo) => {
+  try {
+    let userData = GetValue("users", user.toLowerCase());
+
+    Insert("users", user.toLowerCase(), { u: user, p: password });
+    const token = uuid.v4();
+    keys.push(token);
+    return {
+      status: 200,
+      data: {
+        user,
+
+        expiration: giveToken(),
+      },
+    };
+  } catch (err) {
+    return { error: String(err) };
+  }
+};
+
 module.exports = {
   login,
   register,
+  save,
 };
