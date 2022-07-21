@@ -73,8 +73,11 @@ router.post("/login", async (req, res) => {
     const { user, password } = req.body;
     const result = await login(user, password);
     load.stop();
-    if (result.error == undefined) {
+    if (result.status === 200) {
       log(good(`${user} logged successful`));
+      res.send(result);
+    } else if (result.status === 422) {
+      log(error(`${user} ${result.data.error}`));
       res.send(result);
     } else {
       log(error(result.error));
@@ -94,8 +97,11 @@ router.post("/register", async (req, res) => {
     const { user, password } = req.body;
     const result = await register(user, password);
     load.stop();
-    if (result.error == undefined) {
+    if (result.status === 200) {
       log(good(`${user} registered successful`));
+      res.send(result);
+    } else if (result.status === 422) {
+      log(error(`${user} ${result.data.error}`));
       res.send(result);
     } else {
       log(error(result.error));

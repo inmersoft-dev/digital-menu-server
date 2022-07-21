@@ -2,7 +2,7 @@
 
 const uuid = require("node-uuid");
 
-const { GetValue, Insert, Update } = require("../../db/local");
+const { GetValue, Insert, Update } = require("../../db/controller");
 
 const { keys } = require("../secure");
 
@@ -23,9 +23,11 @@ const giveToken = () => {
 const login = async (user, password) => {
   let theUser = {};
   try {
-    const data = GetValue("users", user.toLowerCase());
+    const data = await GetValue("users", user.toLowerCase());
     if (data !== undefined) {
+      // @ts-ignore
       theUser.p = data.p;
+      // @ts-ignore
       theUser.m = data.m;
       if (theUser.p.toLowerCase() === password.toLowerCase()) {
         const token = Buffer.from(uuid.v4()).toString("base64");
@@ -56,7 +58,7 @@ const login = async (user, password) => {
  */
 const register = async (user, password) => {
   try {
-    const data = GetValue("users", user.toLowerCase());
+    const data = await GetValue("users", user.toLowerCase());
     if (data === undefined) {
       Insert("users", user.toLowerCase(), { u: user, p: password, m: user });
       const token = Buffer.from(uuid.v4()).toString("base64");
@@ -87,7 +89,8 @@ const register = async (user, password) => {
  */
 const save = async (user, menuName, menuDescription, photo) => {
   try {
-    let userData = GetValue("users", user.toLowerCase());
+    let userData = await GetValue("users", user.toLowerCase());
+    // @ts-ignore
     userData = { ...userData, m: menuName, d: menuDescription, ph: photo };
     Update("users", user.toLocaleLowerCase(), userData);
     return {

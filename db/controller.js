@@ -1,4 +1,4 @@
-const firebase = require("../db/db");
+const firebase = require("./remote");
 
 const db = firebase.firestore();
 
@@ -38,7 +38,7 @@ const GetValue = async (table, key) => {
  */
 const GetTable = async (table) => {
   let resultList = [];
-  const localTable = await db.collection(table).doc(key).get();
+  const localTable = await db.collection(table).get();
   localTable.forEach((doc) => {
     const localData = doc.data();
     resultList.push(localData);
