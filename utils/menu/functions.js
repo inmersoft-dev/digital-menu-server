@@ -12,7 +12,7 @@ const { GetValue, Update, GetTable } = require("../../db/controller");
  */
 const save = async (user, menuName, menu, types) => {
   try {
-    let userData = GetValue("users", user.toLowerCase());
+    let userData = await GetValue("users", user.toLowerCase());
     // @ts-ignore
     userData = { ...userData, m: menuName, l: menu, t: types };
     Update("users", user.toLocaleLowerCase(), userData);
@@ -31,7 +31,7 @@ const save = async (user, menuName, menu, types) => {
 // @ts-ignore
 const fetch = async (user, menuName) => {
   try {
-    const userData = GetValue("users", user.toLowerCase());
+    const userData = await GetValue("users", user.toLowerCase());
     // @ts-ignore
     const menu = userData.l;
     // @ts-ignore
@@ -61,7 +61,7 @@ const fetch = async (user, menuName) => {
  */
 const fetchAll = async () => {
   try {
-    const users = GetTable("users");
+    const users = await GetTable("users");
     return {
       status: 200,
       data: {
