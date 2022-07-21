@@ -2,19 +2,20 @@
   "users": {
     "admin": {
       "u": "admin",
-      "p": "e807f1fcf82d132f9bb018ca6738a19f",
-      "t": ["Bebidas"],
+      "p": "25d55ad283aa400af464c76d713c07ad",
+      "m": "admin",
+      "d": "Tuerto",
       "l": [
         {
           "i": 0,
           "n": "Vino",
-          "d": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
-          "p": "100$",
-          "ph": "https://www.cocinayvino.com/wp-content/uploads/2020/02/Vino-e1582312813825.jpg",
-          "t": 0
+          "t": 0,
+          "d": "Vino",
+          "p": "100",
+          "ph": ""
         }
       ],
-      "m": "admin"
+      "t": ["Vinos"]
     }
   }
 }

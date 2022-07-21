@@ -31,10 +31,12 @@ router.post("/save", async (req, res) => {
             log(error(result.error));
             res.send({ error: result.error });
           }
+          return;
         } catch (err) {
           load.stop();
           log(error(err));
           res.sendStatus(500);
+          return;
         }
       }
     }

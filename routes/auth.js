@@ -13,6 +13,34 @@ const { notFound } = require("../utils/pages");
 
 const load = require("../utils/loading");
 
+router.post("/validate", async (req, res) => {
+  if (req.headers.authorization) {
+    if (req.headers.authorization.indexOf("Bearer ") === 0) {
+      const verified = verifyBearer(req.headers.authorization);
+      if (verified) {
+        load.start();
+        try {
+          load.stop();
+          if (result.error == undefined) {
+            log(good(`${user} saved successful`));
+            res.send({ status: 200, data: { message: "authorized" } });
+          } else {
+            log(error(result.error));
+            res.send({ error: result.error });
+          }
+          return;
+        } catch (err) {
+          load.stop();
+          log(error(err));
+          res.sendStatus(500);
+          return;
+        }
+      }
+    }
+  }
+  res.send({ status: 200, data: { error: "unauthorized" } });
+});
+
 router.post("/save", async (req, res) => {
   if (req.headers.authorization) {
     if (req.headers.authorization.indexOf("Bearer ") === 0) {
@@ -31,10 +59,12 @@ router.post("/save", async (req, res) => {
             log(error(result.error));
             res.send({ error: result.error });
           }
+          return;
         } catch (err) {
           load.stop();
           log(error(err));
           res.sendStatus(500);
+          return;
         }
       }
     }
