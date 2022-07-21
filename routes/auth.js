@@ -21,13 +21,7 @@ router.post("/validate", async (req, res) => {
         load.start();
         try {
           load.stop();
-          if (result.error == undefined) {
-            log(good(`${user} saved successful`));
-            res.send({ status: 200, data: { message: "authorized" } });
-          } else {
-            log(error(result.error));
-            res.send({ error: result.error });
-          }
+          res.send({ status: 200, data: { message: "authorized" } });
           return;
         } catch (err) {
           load.stop();

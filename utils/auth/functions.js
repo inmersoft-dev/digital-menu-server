@@ -58,7 +58,7 @@ const register = async (user, password) => {
   try {
     const data = GetValue("users", user.toLowerCase());
     if (data === undefined) {
-      Insert("users", user.toLowerCase(), { u: user, p: password });
+      Insert("users", user.toLowerCase(), { u: user, p: password, m: user });
       const token = Buffer.from(uuid.v4()).toString("base64");
       // @ts-ignore
       keys.push(token);
