@@ -89,7 +89,6 @@ const register = async (user, password) => {
  */
 const save = async (user, menuName, menuDescription, photo) => {
   try {
-    console.log(user, menuName, menuDescription, photo);
     let userData = await GetValue("users", user.toLowerCase());
     console.log(userData);
     // @ts-ignore

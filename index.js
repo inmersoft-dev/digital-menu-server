@@ -48,6 +48,7 @@ app.get("/auth", function (req, res) {
   console.log({ token: token, expire: expire, signature: signature });
   res.send({ token: token, expire: expire, signature: signature });
 });
+
 // limiter
 // app.use(limiter); //  apply to all requests
 // favicon
