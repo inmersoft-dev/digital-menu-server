@@ -39,7 +39,7 @@ router.post("/save", async (req, res) => {
       }
     }
   }
-  res.send(notFound(req.baseUrl)).status(404);
+  res.send(notFound(req.baseUrl, "POST")).status(404);
 });
 
 router.get("/fetch", async (req, res) => {
