@@ -43,7 +43,7 @@ const GetTable = async (table) => {
     const localData = doc.data();
     resultList.push(localData);
   });
-  return localData;
+  return resultList;
 };
 
 module.exports = {
