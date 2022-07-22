@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const uuid = require("node-uuid");
 const crypto = require("crypto");
@@ -13,7 +14,8 @@ const {
 
 const app = express();
 app.set("etag", "strong"); //browser caching of static assets should work properly
-app.get("/", function (req, res) {
+app.use(express.static("views"));
+app.get("/", function (req, res, next) {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
