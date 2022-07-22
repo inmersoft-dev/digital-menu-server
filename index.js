@@ -12,6 +12,10 @@ const {
 } = require("./utils/middlewares");
 
 const app = express();
+app.set("etag", "strong"); //browser caching of static assets should work properly
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
+});
 
 // middle wares
 // morgan
