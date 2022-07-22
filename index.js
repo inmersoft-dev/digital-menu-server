@@ -21,7 +21,7 @@ app.use(morgan.dev);
 // helmet
 app.use(helmet);
 // cors
-app.use(cors);
+// app.use(cors);
 
 // imagekit config
 const ImageKit = require("imagekit");
