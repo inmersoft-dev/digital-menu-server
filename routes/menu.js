@@ -14,6 +14,7 @@ const { notFound } = require("../utils/pages");
 const load = require("../utils/loading");
 
 router.post("/save", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   if (req.headers.authorization) {
     if (req.headers.authorization.indexOf("Bearer ") === 0) {
       const verified = verifyBearer(req.headers.authorization);
@@ -45,6 +46,7 @@ router.post("/save", async (req, res) => {
 });
 
 router.get("/fetch", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   log(info("Fetching menu"));
   load.start();
   try {
@@ -66,7 +68,10 @@ router.get("/fetch", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   log(info("Fetching all menus"));
+  console.log(res.getHeaders());
+  console.log(req.headers);
   load.start();
   try {
     const result = await fetchAll();
