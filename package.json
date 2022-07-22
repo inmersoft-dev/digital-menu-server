@@ -1,0 +1,48 @@
+{
+  "name": "digital-menu-server",
+  "version": "0.0.1",
+  "description": "the server of digital-menu",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "dev": "nodemon ./bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inmersoft-dev/digital-menu-server.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "server",
+    "menu",
+    "digital"
+  ],
+  "author": "sito",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inmersoft-dev/digital-menu-server/issues"
+  },
+  "homepage": "https://github.com/inmersoft-dev/digital-menu-server#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "chalk": "4.1.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "debut": "^0.0.15",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.4.0",
+    "firebase": "8.0.0",
+    "helmet": "^5.1.0",
+    "imagekit": "3.2.2",
+    "json-manager": "^1.0.2",
+    "loading-cli": "^1.1.0",
+    "morgan": "^1.10.0",
+    "node-uuid": "^1.4.8",
+    "nodejs-base64": "^2.0.0",
+    "nodemon": "^2.0.19",
+    "serve-favicon": "^2.5.0"
+  }
+}

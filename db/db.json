@@ -1,0 +1,38 @@
+{
+  "users": {
+    "admin": {
+      "u": "admin",
+      "p": "25d55ad283aa400af464c76d713c07ad",
+      "m": "Tuerto",
+      "d": "Tuerto",
+      "l": [
+        {
+          "i": 0,
+          "n": "Vino",
+          "t": 0,
+          "d": "Vino",
+          "p": "100",
+          "ph": { "ext": "", "content": "" }
+        }
+      ],
+      "t": ["Vinos"]
+    },
+    "sito": {
+      "u": "sito",
+      "p": "25d55ad283aa400af464c76d713c07ad",
+      "m": "El Tuerto",
+      "l": [
+        {
+          "i": 0,
+          "n": "El Tuerto",
+          "t": 0,
+          "d": "Este es el mejor vino de la casa",
+          "p": "100",
+          "ph": { "ext": "", "content": "" }
+        }
+      ],
+      "t": ["Vinos"],
+      "d": "Este es el mejor centro, contactar al: +55555555"
+    }
+  }
+}
