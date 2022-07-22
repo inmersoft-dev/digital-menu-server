@@ -1,6 +1,6 @@
 // @ts-check
 
-const { GetValue, Update, GetTable } = require("../../db/local");
+const { GetValue, Update, GetTable } = require("../../db/controller");
 
 /**
  *
