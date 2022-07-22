@@ -13,8 +13,11 @@ const { notFound } = require("../utils/pages");
 
 const load = require("../utils/loading");
 
+// headers
+const { headers } = require("../utils/secure");
+
 router.post("/validate", async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set({ ...headers });
   if (req.headers.authorization) {
     if (req.headers.authorization.indexOf("Bearer ") === 0) {
       const verified = verifyBearer(req.headers.authorization);
@@ -37,7 +40,7 @@ router.post("/validate", async (req, res) => {
 });
 
 router.post("/save", async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set({ ...headers });
   if (req.headers.authorization) {
     if (req.headers.authorization.indexOf("Bearer ") === 0) {
       const verified = verifyBearer(req.headers.authorization);
@@ -69,6 +72,7 @@ router.post("/save", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  res.set({ ...headers });
   log(info("Logging user"));
   load.start();
   try {
@@ -93,6 +97,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
+  res.set({ ...headers });
   log(info("Registering user"));
   load.start();
   try {
