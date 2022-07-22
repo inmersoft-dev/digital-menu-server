@@ -14,6 +14,7 @@ const { notFound } = require("../utils/pages");
 const load = require("../utils/loading");
 
 router.post("/validate", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   if (req.headers.authorization) {
     if (req.headers.authorization.indexOf("Bearer ") === 0) {
       const verified = verifyBearer(req.headers.authorization);
@@ -36,6 +37,7 @@ router.post("/validate", async (req, res) => {
 });
 
 router.post("/save", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   if (req.headers.authorization) {
     if (req.headers.authorization.indexOf("Bearer ") === 0) {
       const verified = verifyBearer(req.headers.authorization);

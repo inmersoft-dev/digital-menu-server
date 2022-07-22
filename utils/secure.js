@@ -6,7 +6,14 @@ const verifyBearer = (auth) => {
   return false;
 };
 
+const headers = {
+  Accept: "application/json",
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+};
+
 module.exports = {
   verifyBearer,
   keys,
+  headers,
 };
