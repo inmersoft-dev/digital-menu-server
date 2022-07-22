@@ -1,6 +1,6 @@
 // @ts-check
 
-const { GetValue, Update, GetTable } = require("../../db/controller");
+const { GetValue, Update, GetTable } = require("../../db/local");
 
 /**
  *
@@ -32,22 +32,16 @@ const save = async (user, menuName, menu, types) => {
 const fetch = async (user, menuName) => {
   try {
     const userData = await GetValue("users", user.toLowerCase());
-    // @ts-ignore
-    const menu = userData.l;
-    // @ts-ignore
-    const types = userData.t;
+    const { m, l, ph, t, d } = userData;
     return {
       status: 200,
       data: {
         u: user,
-        // @ts-ignore
-        m: userData.m,
-        t: types,
-        l: menu,
-        // @ts-ignore
-        ph: userData.ph,
-        // @ts-ignore
-        d: userData.d,
+        m, // menu - name
+        t, // menu - types
+        l, // menu - list
+        ph, // menu - photo
+        d, // menu - description
       },
     };
   } catch (err) {

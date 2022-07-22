@@ -2,7 +2,7 @@
 
 const uuid = require("node-uuid");
 
-const { GetValue, Insert, Update } = require("../../db/controller");
+const { GetValue, Insert, Update } = require("../../db/local");
 
 const { keys } = require("../secure");
 
