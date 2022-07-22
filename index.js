@@ -38,14 +38,13 @@ app.get("/auth", function (req, res) {
   var result = imagekit.getAuthenticationParameters();
   var token = req.query.token || uuid.v4();
   var expire = req.query.expire || parseInt(new Date().getTime() + 10000);
-  console.log(new Date().getTime());
   var privateAPIKey = "your_private_key";
   var signature = crypto
     .createHmac("sha1", privateAPIKey)
     .update(token + expire)
     .digest("hex");
-  console.log(result);
   console.log({ token: token, expire: expire, signature: signature });
+  console.log(result);
   res.send({ token: token, expire: expire, signature: signature });
 });
 
