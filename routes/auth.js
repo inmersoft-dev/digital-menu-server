@@ -6,15 +6,12 @@ const { login, register, save } = require("../utils/auth/functions");
 const router = express.Router();
 
 // auth
-const { verifyBearer } = require("../utils/secure");
+const { verifyBearer, headers } = require("../utils/secure");
 
 // pages
 const { notFound } = require("../utils/pages");
 
 const load = require("../utils/loading");
-
-// headers
-const { headers } = require("../utils/secure");
 
 router.post("/validate", async (req, res) => {
   res.set({ ...headers });

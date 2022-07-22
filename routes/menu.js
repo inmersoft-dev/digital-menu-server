@@ -6,7 +6,7 @@ const { save, fetch, fetchAll } = require("../utils/menu/functions");
 const router = express.Router();
 
 // auth
-const { verifyBearer } = require("../utils/secure");
+const { verifyBearer, headers } = require("../utils/secure");
 
 // pages
 const { notFound } = require("../utils/pages");
