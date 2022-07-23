@@ -28,10 +28,7 @@
           "p": "390"
         }
       ],
-      "t": [
-        "Vinos",
-        "Entrantes"
-      ],
+      "t": ["Vinos", "Entrantes"],
       "ph": {
         "ext": "",
         "content": ""
@@ -95,12 +92,7 @@
           }
         }
       ],
-      "t": [
-        "Vinos",
-        "Especies",
-        "Extras",
-        "Cangrejos"
-      ],
+      "t": ["Vinos", "Especies", "Extras", "Cangrejos"],
       "d": "Este es el mejor centro, contactar al: +55555555"
     }
   }
