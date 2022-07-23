@@ -59,7 +59,7 @@ app.get("/auth", function (req, res) {
 // favicon
 // app.use(favicon);
 
-app.use(express.json({ limit: 1048576 }));
+app.use(express.json({ limit: 10048576 }));
 app.use(express.urlencoded({ extended: false }));
 
 // routes
