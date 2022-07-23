@@ -3,20 +3,34 @@
     "admin": {
       "u": "admin",
       "p": "25d55ad283aa400af464c76d713c07ad",
-      "m": "Tuerto",
+      "m": "admin",
       "d": "Tuerto",
       "l": [
         {
           "i": 0,
-          "n": "Vino",
+          "n": "Dulce de coco",
+          "t": 1,
+          "d": "El dulce de coco",
+          "p": "200"
+        },
+        {
+          "i": 1,
+          "n": "Vino Rojo",
           "t": 0,
-          "d": "Vino",
-          "p": "100",
-          "ph": ""
+          "d": "Existe el vino rojo",
+          "p": "290"
+        },
+        {
+          "i": 2,
+          "n": "Vino Tinto",
+          "t": 0,
+          "d": "Es el vino tinto",
+          "p": "390"
         }
       ],
       "t": [
-        "Vinos"
+        "Vinos",
+        "Entrantes"
       ]
     },
     "sito": {
