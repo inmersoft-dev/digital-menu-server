@@ -46,8 +46,11 @@ router.post("/save", async (req, res) => {
           const { user, menuName, menuDescription, photo } = req.body;
           const result = await save(user, menuName, menuDescription, photo);
           load.stop();
-          if (result.error == undefined) {
-            log(good(`${user} saved successful`));
+          if (result.status === 200) {
+            log(good(`${user} logged successful`));
+            res.send(result);
+          } else if (result.status === 422) {
+            log(error(`${user} ${result.data.error}`));
             res.send(result);
           } else {
             log(error(result.error));
