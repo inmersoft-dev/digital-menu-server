@@ -70,8 +70,6 @@ router.get("/fetch", async (req, res) => {
 router.get("/", async (req, res) => {
   res.set({ ...headers });
   log(info("Fetching all menus"));
-  console.log(res.getHeaders());
-  console.log(req.headers);
   load.start();
   try {
     const result = await fetchAll();
