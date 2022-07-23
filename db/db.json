@@ -15,9 +15,7 @@
           "ph": ""
         }
       ],
-      "t": [
-        "Vinos"
-      ]
+      "t": ["Vinos"]
     },
     "sito": {
       "u": "sito",
@@ -33,9 +31,7 @@
           "ph": ""
         }
       ],
-      "t": [
-        "Vinos"
-      ],
+      "t": ["Vinos"],
       "d": "Este es el mejor centro, contactar al: +55555555"
     }
   }
