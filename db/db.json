@@ -31,7 +31,11 @@
       "t": [
         "Vinos",
         "Entrantes"
-      ]
+      ],
+      "ph": {
+        "ext": "",
+        "content": ""
+      }
     },
     "sito": {
       "u": "sito",
