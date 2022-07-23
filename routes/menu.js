@@ -25,8 +25,11 @@ router.post("/save", async (req, res) => {
           const { user, menuName, menu, types } = req.body;
           const result = await save(user, menuName, menu, types);
           load.stop();
-          if (result.error == undefined) {
+          if (result.status === 200) {
             log(good(`${menuName} from ${user} saved successful`));
+            res.send(result);
+          } else if (result.status === 422) {
+            log(error(`${menuName} from ${user} ${result.data.error}`));
             res.send(result);
           } else {
             log(error(result.error));
@@ -53,8 +56,11 @@ router.get("/fetch", async (req, res) => {
     const { user, menuName } = req.query;
     const result = await fetch(user, menuName);
     load.stop();
-    if (result.error == undefined) {
+    if (result.status === 200) {
       log(good(`${menuName} from ${user} fetched successful`));
+      res.send(result);
+    } else if (result.status === 422) {
+      log(error(`${menuName} from ${user} ${result.data.error}`));
       res.send(result);
     } else {
       log(error(result.error));

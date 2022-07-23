@@ -32,18 +32,21 @@ const save = async (user, menuName, menu, types) => {
 const fetch = async (user, menuName) => {
   try {
     const userData = await GetValue("users", user.toLowerCase());
-    const { m, l, ph, t, d } = userData;
-    return {
-      status: 200,
-      data: {
-        u: user,
-        m, // menu - name
-        t, // menu - types
-        l, // menu - list
-        ph, // menu - photo
-        d, // menu - description
-      },
-    };
+    if (userData) {
+      const { m, l, ph, t, d } = userData;
+      return {
+        status: 200,
+        data: {
+          u: user,
+          m, // menu - name
+          t, // menu - types
+          l, // menu - list
+          ph, // menu - photo
+          d, // menu - description
+        },
+      };
+    }
+    return { error: "not found" };
   } catch (err) {
     return { error: String(err) };
   }
