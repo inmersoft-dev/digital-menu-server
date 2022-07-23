@@ -30,17 +30,16 @@ const save = async (user, menuName, menu, types) => {
 const fetch = async (user, menuName) => {
   try {
     const userData = GetValue("users", user.toLowerCase());
-    const menu = userData.l;
-    const types = userData.t;
+    const { m, l, ph, t, d } = userData;
     return {
       status: 200,
       data: {
         u: user,
-        m: userData.m,
-        t: types,
-        l: menu,
-        ph: userData.ph,
-        d: userData.d,
+        m, // menu - name
+        t, // menu - types
+        l, // menu - list
+        ph, // menu - photo
+        d, // menu - description
       },
     };
   } catch (err) {
