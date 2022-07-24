@@ -1,17 +1,15 @@
-const firebase = require("./remote");
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
-const storage = firebase.storage();
-
-// Create a root reference
-const storageRef = storage.ref();
-
-const UploadFile = async (file) => {
-  storageRef.put(file).then((snapshot) => {
-    console.log("Uploaded a blob or file!");
-    console.log(snapshot);
-  });
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://firebase.google.com/docs/web/learn-more#config-object
+const firebaseConfig = {
+  // ...
+  storageBucket: "",
 };
 
-module.exports = {
-  UploadFile,
-};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app);
