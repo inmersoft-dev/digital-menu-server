@@ -65,6 +65,7 @@ app.use(express.urlencoded({ extended: false }));
 // routes
 const auth = require("./routes/auth");
 const menu = require("./routes/menu");
+const { UploadFile } = require("./db/storage");
 app.use("/api/user/", auth);
 app.use("/api/menu/", menu);
 

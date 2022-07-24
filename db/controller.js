@@ -1,6 +1,11 @@
-const firebase = require("./remote");
-
-const db = firebase.firestore();
+const { db } = require("./firebase");
+const {
+  collection,
+  doc,
+  getDocs,
+  getDoc,
+  setDoc,
+} = require("firebase/firestore");
 
 /**
  * @param {string} table
@@ -8,7 +13,7 @@ const db = firebase.firestore();
  * @param {any} value
  */
 const Insert = async (table, key, value) => {
-  await db.collection(table).doc(key).set(value);
+  await setDoc(doc(table, key), value);
 };
 
 /**
@@ -17,10 +22,12 @@ const Insert = async (table, key, value) => {
  * @param {any} value
  */
 const Update = async (table, key, value) => {
-  await db
-    .collection(table)
-    .doc(key)
-    .update({ ...value });
+  const dataRef = doc(db, table, key);
+  const dataSnap = await getDoc(dataRef);
+  if (dataSnap.exists()) {
+    const localData = { ...dataSnap.data(), ...value };
+    await setDoc(doc(table, key), localData);
+  }
 };
 
 /**
@@ -28,21 +35,19 @@ const Update = async (table, key, value) => {
  * @param {string} key
  */
 const GetValue = async (table, key) => {
-  const localTable = await db.collection(table).doc(key).get();
-  const localData = localTable.data();
-  return localData;
+  const dataRef = doc(db, table, key);
+  const dataSnap = await getDoc(dataRef);
+  if (dataSnap.exists()) return dataSnap.data();
+  return undefined;
 };
 
 /**
  * @param {string} table
  */
 const GetTable = async (table) => {
+  const querySnapshot = await getDocs(collection(db, table));
   let resultList = [];
-  const localTable = await db.collection(table).get();
-  localTable.forEach((doc) => {
-    const localData = doc.data();
-    resultList.push(localData);
-  });
+  querySnapshot.forEach((doc) => resultList.push(doc.data()));
   return resultList;
 };
 
