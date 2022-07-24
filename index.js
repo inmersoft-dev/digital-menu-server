@@ -63,10 +63,5 @@ const menu = require("./routes/menu");
 const { UploadFile } = require("./db/storage");
 app.use("/api/user/", auth);
 app.use("/api/menu/", menu);
-app.post("/file", (req, res) => {
-  console.log(req.body);
-  const { content } = req.body;
-  UploadFile(content);
-});
 
 module.exports = app;
