@@ -5,6 +5,7 @@ const {
   getDocs,
   getDoc,
   setDoc,
+  addDoc,
 } = require("firebase/firestore");
 
 /**
@@ -13,7 +14,10 @@ const {
  * @param {any} value
  */
 const Insert = async (table, key, value) => {
-  await setDoc(doc(table, key), value);
+  await setDoc(doc(db, table, key), {
+    ...value,
+  });
+  return { ...value };
 };
 
 /**
@@ -25,9 +29,10 @@ const Update = async (table, key, value) => {
   const dataRef = doc(db, table, key);
   const dataSnap = await getDoc(dataRef);
   if (dataSnap.exists()) {
-    const localData = { ...dataSnap.data(), ...value };
-    await setDoc(doc(table, key), localData);
+    await setDoc(doc(db, table, key), { ...value });
+    return { ...value };
   }
+  return undefined;
 };
 
 /**

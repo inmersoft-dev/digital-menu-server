@@ -13,10 +13,17 @@ const { GetValue, Update, GetTable } = require("../../db/controller");
 const save = async (user, menuName, menu, types) => {
   try {
     let userData = await GetValue("users", user.toLowerCase());
-    // @ts-ignore
-    userData = { ...userData, m: menuName, l: menu, t: types };
-    Update("users", user.toLocaleLowerCase(), userData);
-    return { status: 200, data: { u: user, m: menuName, l: menu, t: types } };
+    if (userData) {
+      // @ts-ignore
+      userData = { ...userData, m: menuName, l: menu, t: types };
+      const result = await Update("users", user.toLocaleLowerCase(), userData);
+      if (result) {
+        return {
+          status: 200,
+          data: { u: user, m: menuName, l: menu, t: types },
+        };
+      } else return { error: "something goes wrong" };
+    } else return { error: "not found" };
   } catch (err) {
     return { error: String(err) };
   }

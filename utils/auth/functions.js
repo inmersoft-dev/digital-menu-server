@@ -90,7 +90,6 @@ const register = async (user, password) => {
 const save = async (user, menuName, menuDescription, photo) => {
   try {
     let userData = await GetValue("users", user.toLowerCase());
-    console.log(userData);
     // @ts-ignore
     userData = { ...userData, m: menuName, d: menuDescription, ph: photo };
     Update("users", user.toLocaleLowerCase(), userData);
