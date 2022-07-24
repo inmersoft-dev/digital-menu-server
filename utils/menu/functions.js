@@ -1,6 +1,6 @@
 // @ts-check
 
-const { GetValue, Update, GetTable } = require("../../db/local");
+const { GetValue, Update, GetTable } = require("../../db/controller");
 
 /**
  *
@@ -12,7 +12,8 @@ const { GetValue, Update, GetTable } = require("../../db/local");
  */
 const save = async (user, menuName, menu, types) => {
   try {
-    let userData = GetValue("users", user.toLowerCase());
+    let userData = await GetValue("users", user.toLowerCase());
+    // @ts-ignore
     userData = { ...userData, m: menuName, l: menu, t: types };
     Update("users", user.toLocaleLowerCase(), userData);
     return { status: 200, data: { u: user, m: menuName, l: menu, t: types } };
@@ -27,9 +28,10 @@ const save = async (user, menuName, menu, types) => {
  * @param {string} menuName
  * @returns menu data
  */
+// @ts-ignore
 const fetch = async (user, menuName) => {
   try {
-    const userData = GetValue("users", user.toLowerCase());
+    const userData = await GetValue("users", user.toLowerCase());
     if (userData) {
       const { m, l, ph, t, d } = userData;
       return {
@@ -56,7 +58,7 @@ const fetch = async (user, menuName) => {
  */
 const fetchAll = async () => {
   try {
-    const users = GetTable("users");
+    const users = await GetTable("users");
     return {
       status: 200,
       data: {
