@@ -1,6 +1,6 @@
 {
   "name": "digital-menu-server",
-  "version": "0.0.1",
+  "version": "0.7.15",
   "description": "the server of digital-menu",
   "main": "index.js",
   "scripts": {
