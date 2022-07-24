@@ -1,15 +1,14 @@
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
+const { storage } = require("./firebase");
+const { ref, uploadBytes } = require("firebase/storage");
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-const firebaseConfig = {
-  // ...
-  storageBucket: "",
+const storageRef = ref(storage, "some-child");
+
+const UploadFile = async (blob) => {
+  const snapShot = await uploadBytes(storageRef, blob);
+  console.log(snapShot);
+  console.log("Uploaded a blob or file!");
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Cloud Storage and get a reference to the service
-const storage = getStorage(app);
+module.exports = {
+  UploadFile,
+};
