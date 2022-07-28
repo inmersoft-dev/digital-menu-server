@@ -1,7 +1,7 @@
 const express = require("express");
 // chalk
 const { error, log, info, good } = require("../utils/chalk");
-const { save, fetch, fetchAll } = require("../utils/menu/functions");
+const { save, fetch, fetchAll } = require("../utils/course/functions");
 
 const router = express.Router();
 
